@@ -1,0 +1,58 @@
+/* contact */
+.contact{
+  @apply bg-blue-400 dark:bg-neutral-800 scroll-mt-16;
+}
+.contact-container{
+  @apply mx-auto py-4;
+}
+.contact-header{
+  @apply flex justify-center;
+}
+.contact-header .title{
+  @apply inline-flex justify-between;
+}
+.contact-header .title svg{
+  @apply self-end text-xl text-blue-800;
+}
+.contact-header .title p{
+  @apply text-3xl text-blue-800 font-medium;
+}
+.contact-direction{
+  @apply flex md:flex-wrap-reverse mx-28 md:mx-16 sm:mx-10;
+}
+.contact-section{
+  @apply w-1/2 md:w-full mx-auto my-8;
+}
+.contact-detail{
+  @apply my-3.5;
+}
+.contact-detail h6{
+  @apply flex flex-row gap-3 place-items-center font-medium text-xl dark:text-gray-200;
+}
+.contact-detail h6 svg{
+  @apply text-2xl dark:text-gray-200;
+}
+.contact-detail p{
+  @apply ml-9 font-light text-xl dark:text-gray-200;
+}
+.contact-detail p a{
+  @apply text-blue-700 break-words hover:text-blue-900 hover:underline;
+}
+input, textarea{
+  @apply dark:bg-neutral-700;
+}
+.namemail{
+  @apply flex flex-initial space-x-0.5;
+}
+.namemail input{
+  @apply my-2 px-3 w-1/2 h-10 border-solid border-0 rounded-lg;
+}
+.subject input{
+  @apply my-2 px-3 w-full h-10 border-solid border-0 rounded-lg;
+}
+.message textarea{
+  @apply my-2 px-3 w-full h-24 border-solid border-0 rounded-lg;
+}
+form .btn{
+  @apply text-right rounded-lg py-3 px-6 sm:py-2 sm:px-2 text-yellow-300 bg-gray-700 hover:bg-gray-900;
+}

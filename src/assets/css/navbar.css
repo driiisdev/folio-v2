@@ -1,0 +1,53 @@
+/* nav */
+nav{
+  @apply container bg-white dark:bg-neutral-900 shadow-md fixed top-0 right-0 left-0;
+}
+nav .nav-container{
+  @apply mx-auto max-w-7xl xl:mx-24 lg:mx-16 md:mx-10 sm:mx-1 py-5;
+}
+.nav-direction{
+  @apply flex flex-row justify-between place-items-center;
+}
+
+.nav-logo a {
+  @apply inline-flex space-x-2 place-items-center text-3xl sm:text-2xl text-blue-600;
+}
+.nav-links{
+  @apply flex justify-items-center place-items-center space-x-5;
+}
+.primary-nav{
+  @apply md:hidden flex space-x-5 text-lg items-center;
+}
+.primary-nav a{
+  @apply text-blue-400 hover:text-blue-600 hover:underline hover:underline-offset-2;
+}
+/* .mode{
+  @apply flex;
+}
+.mode-ul{
+  @apply flex flex-shrink-0 space-x-2 bg-gray-200 border-4 border-solid border-gray-200 dark:border-neutral-900 dark:bg-black rounded-full;
+}
+.mode-ul li{
+  @apply py-1.5 px-2 sm:py-1 sm:px-1 select-none cursor-pointer rounded-full text-2xl dark:text-white;
+}
+.mode li svg{
+  @apply fill-transparent stroke-neutral-700 dark:stroke-neutral-300 h-6 w-6;
+}
+.mode-li-active{
+  @apply bg-slate-50 dark:bg-neutral-700;
+}*/
+.toggle-icon{
+  @apply hidden md:block cursor-pointer select-none;
+}
+.toggle-icon svg{
+  @apply text-blue-700 text-2xl;
+}
+.primary-nav-expand{
+  @apply mx-auto hidden;
+}
+.primary-nav-expand.show{
+  @apply flex flex-col;
+}
+.primary-nav-expand a{
+  @apply text-center text-blue-400 hover:text-blue-600 hover:underline;
+}
