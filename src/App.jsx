@@ -8,11 +8,13 @@ function App() {
 
   return (
     <>
-        <section className="main-direction">
-          <aside className="left-bar">
+      
+      <section className="main-direction">
+        <aside className="left-bar">
+          <div className="container">
             <article>
               <div>
-                <h1>Idris Yakub</h1>
+                <h2>Idris Yakub</h2>
                 <h3>Software (Frontend) Engineer</h3>
                 <p>I am an architect of digital dreams. I build seamless software solutions, pushing the boundaries of technology, and crafting elegant code that defies limits. From designing captivating user interfaces to optimizing intricate systems.</p>
               </div>
@@ -29,7 +31,8 @@ function App() {
               </ul>
             </article>
             <section>
-              <h4></h4>
+              <h2>Get In Touch</h2>
+              <p>I’m currently open to new opportunities / collaborations, my inbox is always open. Whether you have a question, proposal, project or just want to say hi</p>
               <ul>
                 <li>
                 <span><Icon icon="bxs:file" /></span>
@@ -48,17 +51,19 @@ function App() {
                 </li>
               </ul>
             </section>
-          </aside>
-          <aside className="right-bar">
-            <section className='description'>
+          </div>
+        </aside>
 
-            </section>
-            <section className='experience'>
+        <aside className="right-bar">
+          <section className='description'>
 
-            </section>
-            
-          </aside>
-        </section>
+          </section>
+          <section className='experience'>
+
+          </section>
+          
+        </aside>
+      </section>
     </>
   )
 }

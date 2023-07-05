@@ -21,7 +21,7 @@ body{
 }
 
 main{
-  @apply mx-24;
+  @apply max-w-7xl mx-10;
 }
 
 .main-direction {
@@ -29,7 +29,10 @@ main{
 }
 
 aside.left-bar{
-  @apply w-1/2 bg-white mx-auto;
+  @apply w-1/2 bg-white mx-auto ;
+}
+.left-bar > .container{
+  @apply flex flex-col justify-between;
 }
 
 aside.right-bar{
