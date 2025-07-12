@@ -42,9 +42,9 @@ const Portfolio: React.FC = () => {
     <>
       <div className="bg-gray-100">
         <Header />
-        {/* main section */}
+
         <div className="flex">
-          {/* Left */}
+          
           <div className="w-1/2 py-4 px-12 flex flex-col justify-between bg-gray-100">
             <div>
               <h1 className="text-7xl text-left font-bold">SOFTWARE</h1>
@@ -95,15 +95,15 @@ const Portfolio: React.FC = () => {
             </div>
           </div>
 
-          {/* Right */}
           <div className="w-1/2 py-4 px-12 bg-gray-100 overflow-y-auto">
             <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
             {renderContent()}
           </div>
         </div>
+
         <Footer />
       </div>
-      {/* Modal */}
+
       <ContactModal
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}

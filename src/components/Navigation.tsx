@@ -7,7 +7,7 @@ interface Props {
 
 const Navigation: React.FC<Props> = ({ activeTab, onTabChange }) => (
   <div className="flex gap-8 mb-8">
-    {["Experience", "Projects", "Contributions"].map((tab) => (
+    {["Experience", "Projects", "Blogs", "Contributions"].map((tab) => (
       <button
         key={tab}
         onClick={() => onTabChange(tab)}
@@ -17,7 +17,7 @@ const Navigation: React.FC<Props> = ({ activeTab, onTabChange }) => (
             : "text-gray-500 hover:text-gray-700"
         }`}
       >
-        {tab}
+        {tab}&#46;
       </button>
     ))}
   </div>

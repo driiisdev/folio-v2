@@ -33,7 +33,9 @@ const ContactModal: React.FC<Props> = ({ isOpen, onClose }) => {
         <div className="relative overflow-hidden py-4 border-t border-b border-black w-full">
           <div className="whitespace-nowrap animate-marquee">
             <h1 className="inline-block font-extrabold text-8xl">
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;LET'S TALK! &nbsp;Let's COLLABORATE &nbsp; LET'S TALK! &nbsp;Let's COLLABORATE &nbsp; LET'S TALK! &nbsp;Let's COLLABORATE
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;LET'S TALK! &nbsp;Let's
+              COLLABORATE &nbsp; LET'S TALK! &nbsp;Let's COLLABORATE &nbsp;
+              LET'S TALK! &nbsp;Let's COLLABORATE
             </h1>
           </div>
         </div>

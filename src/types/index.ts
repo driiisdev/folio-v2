@@ -34,3 +34,10 @@ export interface SocialLink {
   url: string;
   icon: string;
 }
+
+export interface LocationInfo {
+  city: string;
+  country: string;
+  timezone: string;
+  weather: string;
+}
