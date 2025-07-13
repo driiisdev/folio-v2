@@ -35,9 +35,20 @@ export interface SocialLink {
   icon: string;
 }
 
-export interface LocationInfo {
-  city: string;
-  country: string;
-  timezone: string;
-  weather: string;
+export interface WeatherData {
+  location: {
+    name: string;
+    region: string;
+    country: string;
+    localtime: string;
+    tz_id: string;
+  };
+  current: {
+    temp_c: number;
+    condition: {
+      text: string;
+      icon: string;
+    };
+    is_day: number;
+  };
 }
