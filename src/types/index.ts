@@ -20,6 +20,13 @@ export interface Contribution {
   type: 'contribution' | 'recognition';
 }
 
+export interface Blog {
+  id: string;
+  title: string;
+  description: string;
+  type: 'contribution' | 'recognition';
+}
+
 export interface PersonalInfo {
   name: string;
   title: string;

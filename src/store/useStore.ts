@@ -21,6 +21,11 @@ interface TimeState {
   setLocation: (postalCode: string) => void;
 }
 
+interface CubeIndexState {
+  cubeIndex: number;
+  setCubeIndex: (index: number) => void;
+}
+
 export const useContactModal = create<contactModalState>()(
   devtools(
     (set) => ({
@@ -38,10 +43,23 @@ export const useNavigationTab = create<navigationTabState>()(
   }))
 );
 
-export const useTime = create<TimeState>((set) => ({
-  currentTime: new Date(),
-  location: 'Ontario, CA',
-  postalCode: PostalCode,
-  updateTime: () => set({ currentTime: new Date() }),
-  setLocation: (location: string) => set({ location }),
-}));
+export const useTime = create<TimeState>()(
+  devtools(
+    (set) => ({
+      currentTime: new Date(),
+      postalCode: PostalCode,
+      location: "Ontario, CA",
+      updateTime: () => set({ currentTime: new Date() }),
+      setLocation: (location: string) => set({ location }),
+    })
+  )
+);
+
+export const useCubeIndex = create<CubeIndexState>()(
+  devtools(
+    (set) => ({
+      cubeIndex: 0,
+      setCubeIndex: (index: number) => set({ cubeIndex: index }),
+    })
+  )
+);

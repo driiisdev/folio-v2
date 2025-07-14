@@ -1,5 +1,3 @@
-import React from "react";
-
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
 import ContactModal from "../components/ContactModal";
@@ -16,8 +14,10 @@ import DownloadIcon from "../assets/svg/download.svg?react";
 import { useContactModal, useNavigationTab } from "../store/useStore";
 
 const Portfolio: React.FC = () => {
+  // const title = ["SOFTWARE", "AI", "BACKEND", "FULLSTACK"];
   const { isContactOpen, setIsContactOpen } = useContactModal();
   const { activeTab, setActiveTab } = useNavigationTab();
+  // const { cubeIndex, setCubeIndex } = useCubeIndex();
 
   const renderContent = () => {
     switch (activeTab) {
@@ -37,6 +37,23 @@ const Portfolio: React.FC = () => {
         );
     }
   };
+
+  // useEffect(()=> {
+  //   const handleRotation = setInterval(()=> {
+  //     setCubeIndex(()=>{
+  //       return (cubeIndex + 1) % title.length;
+  //     })
+  //   })
+  // })
+
+  // useEffect(() => {
+  //   const handleCubeRotation = () => {
+  //     setCubeIndex((prevIndex: number) => (prevIndex + 1) % title.length);
+  //   };
+
+  //   const interval = setInterval(handleCubeRotation, 3000);
+  //   return () => clearInterval(interval);
+  // });
 
   return (
     <>
