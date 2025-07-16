@@ -11,13 +11,26 @@ import LinkedinIcon from "../assets/svg/linkedin.svg?react";
 import HashnodeIcon from "../assets/svg/hashnode.svg?react";
 import YoutubeIcon from "../assets/svg/youtube.svg?react";
 import DownloadIcon from "../assets/svg/download.svg?react";
-import { useContactModal, useNavigationTab } from "../store/useStore";
+import {
+  useContactModal,
+  useNavigationTab,
+  useCubeIndex,
+} from "../store/useStore";
+import { useEffect } from "react";
 
 const Portfolio: React.FC = () => {
-  // const title = ["SOFTWARE", "AI", "BACKEND", "FULLSTACK"];
+  const titles = ["SOFTWARE", "BACKEND", "FULLSTACK", "AI/ML"];
   const { isContactOpen, setIsContactOpen } = useContactModal();
   const { activeTab, setActiveTab } = useNavigationTab();
-  // const { cubeIndex, setCubeIndex } = useCubeIndex();
+  const { cubeIndex, setCubeIndex } = useCubeIndex();
+
+  useEffect(() => {
+    const handleRotation = setInterval(() => {
+      setCubeIndex((prev) => (prev >= 100 ? 0 : prev + 1));
+      // setCubeIndex((prev: number) => (prev + 1) % titles.length);
+    }, 3000);
+    return () => clearInterval(handleRotation);
+  }, []);
 
   const renderContent = () => {
     switch (activeTab) {
@@ -38,33 +51,37 @@ const Portfolio: React.FC = () => {
     }
   };
 
-  // useEffect(()=> {
-  //   const handleRotation = setInterval(()=> {
-  //     setCubeIndex(()=>{
-  //       return (cubeIndex + 1) % title.length;
-  //     })
-  //   })
-  // })
-
-  // useEffect(() => {
-  //   const handleCubeRotation = () => {
-  //     setCubeIndex((prevIndex: number) => (prevIndex + 1) % title.length);
-  //   };
-
-  //   const interval = setInterval(handleCubeRotation, 3000);
-  //   return () => clearInterval(interval);
-  // });
-
   return (
     <>
       <div className="bg-gray-100">
         <Header />
 
         <div className="flex">
-          
           <div className="w-1/2 py-4 px-12 flex flex-col justify-between bg-gray-100">
             <div>
-              <h1 className="text-7xl text-left font-bold">SOFTWARE</h1>
+              <div className="relative h-[72px] overflow-hidden perspective-1000">
+                <div
+                  className="absolute inset-0 transition-transform duration-1000 ease-in-out transform-style-preserve-3d"
+                  style={{
+                    transform: `rotateX(${cubeIndex * -90}deg)`,
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  {titles.map((text, index) => (
+                    <div
+                      key={index}
+                      className="absolute inset-0  text-7xl font-bold text-black"
+                      style={{
+                        transform: `rotateX(${index * 90}deg) translateZ(64px)`,
+                        backfaceVisibility: "hidden",
+                      }}
+                    >
+                      {text}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* <h1 className="text-7xl text-left font-bold">SOFTWARE</h1> */}
               <h1 className="text-7xl text-right font-bold">ENGINEER</h1>
               <p className="pt-8 pb-16 font-normal text-base text-center text-gray-700">
                 I am a developer of digital dreams. I build seamless

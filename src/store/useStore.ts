@@ -16,19 +16,18 @@ interface navigationTabState {
 interface TimeState {
   currentTime: Date;
   postalCode: string;
-  location: string;
+  activeLocation: string;
   updateTime: () => void;
   setLocation: (postalCode: string) => void;
 }
 
 interface CubeIndexState {
   cubeIndex: number;
-  setCubeIndex: (index: number) => void;
+  setCubeIndex: (index: number | ((prev: number) => number)) => void;
 }
 
 export const useContactModal = create<contactModalState>()(
-  devtools(
-    (set) => ({
+  devtools((set) => ({
       isContactOpen: false,
       setIsContactOpen: (isOpen) => set({isContactOpen: isOpen}),
     })
@@ -36,30 +35,29 @@ export const useContactModal = create<contactModalState>()(
 );
 
 export const useNavigationTab = create<navigationTabState>()(
-  devtools(
-    (set) => ({
+  devtools((set) => ({
       activeTab: "experience",
       setActiveTab: (tab) => set({ activeTab: tab }),
   }))
 );
 
 export const useTime = create<TimeState>()(
-  devtools(
-    (set) => ({
+  devtools((set) => ({
       currentTime: new Date(),
       postalCode: PostalCode,
-      location: "Ontario, CA",
+      activeLocation: "Ontario, CA",
       updateTime: () => set({ currentTime: new Date() }),
-      setLocation: (location: string) => set({ location }),
+      setLocation: (location: string) => set({ activeLocation : location }),
     })
   )
 );
 
 export const useCubeIndex = create<CubeIndexState>()(
-  devtools(
-    (set) => ({
-      cubeIndex: 0,
-      setCubeIndex: (index: number) => set({ cubeIndex: index }),
-    })
-  )
+  devtools((set) => ({
+    cubeIndex: 0,
+    setCubeIndex: (index) =>
+      set((state) => ({
+        cubeIndex: typeof index === 'function' ? index(state.cubeIndex) : index,
+      })),
+  }))
 );
