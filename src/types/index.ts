@@ -2,6 +2,7 @@ export interface Experience {
   id: string;
   year: string;
   title: string;
+  location?: string;
   company: string;
   description: string;
 }
@@ -15,17 +16,12 @@ export interface Project {
 
 export interface Contribution {
   id: string;
+  year?: string;
   title: string;
+  url?: string;
   description: string;
-  type: 'contribution' | 'recognition';
 }
 
-export interface Blog {
-  id: string;
-  title: string;
-  description: string;
-  type: 'contribution' | 'recognition';
-}
 
 export interface PersonalInfo {
   name: string;

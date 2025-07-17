@@ -27,7 +27,6 @@ const Portfolio: React.FC = () => {
   useEffect(() => {
     const handleRotation = setInterval(() => {
       setCubeIndex((prev) => (prev >= 100 ? 0 : prev + 1));
-      // setCubeIndex((prev: number) => (prev + 1) % titles.length);
     }, 3000);
     return () => clearInterval(handleRotation);
   }, []);
@@ -129,7 +128,7 @@ const Portfolio: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-1/2 py-4 px-12 bg-gray-100 overflow-y-auto">
+          <div className="w-1/2 pt-4 pb-2 px-12 bg-gray-100">
             <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
             {renderContent()}
           </div>
