@@ -1,22 +1,21 @@
+import { useEffect } from "react";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
+import Navigation from "../components/Navigation";
 import ContactModal from "../components/ContactModal";
 import ExperienceCard from "../components/ExperienceCard";
 import ProjectCard from "../components/ProjectCard";
-import Navigation from "../components/Navigation";
+import ContributionCard from "../components/ContributionCard";
 import { experiences } from "../data/experiences";
 import { projects } from "../data/projects";
-import GithubIcon from "../assets/svg/github.svg?react";
-import LinkedinIcon from "../assets/svg/linkedin.svg?react";
-import HashnodeIcon from "../assets/svg/hashnode.svg?react";
-import YoutubeIcon from "../assets/svg/youtube.svg?react";
+import { contributions } from "../data/contributions";
+import { socialLinks, resumeLink } from "../data/socials";
 import DownloadIcon from "../assets/svg/download.svg?react";
 import {
   useContactModal,
   useNavigationTab,
   useCubeIndex,
 } from "../store/useStore";
-import { useEffect } from "react";
 
 const Portfolio: React.FC = () => {
   const titles = ["SOFTWARE", "BACKEND", "FULLSTACK", "AI/ML"];
@@ -41,12 +40,14 @@ const Portfolio: React.FC = () => {
         return projects.map((proj) => (
           <ProjectCard key={proj.id} project={proj} />
         ));
+      case "Contributions":
+        return contributions.map((cont) => (
+          <ContributionCard key={cont.id} contribution={cont} />
+        ));
       default:
-        return (
-          <div className="text-center text-gray-500 py-12">
-            Contributions content coming soon...
-          </div>
-        );
+        return experiences.map((exp) => (
+          <ExperienceCard key={exp.id} experience={exp} />
+        ));
     }
   };
 
@@ -80,7 +81,6 @@ const Portfolio: React.FC = () => {
                   ))}
                 </div>
               </div>
-              {/* <h1 className="text-7xl text-left font-bold">SOFTWARE</h1> */}
               <h1 className="text-7xl text-right font-bold">ENGINEER</h1>
               <p className="pt-8 pb-16 font-normal text-base text-center text-gray-700">
                 I am a developer of digital dreams. I build seamless
@@ -106,23 +106,27 @@ const Portfolio: React.FC = () => {
                 </p>
               </div>
               <div className="flex flex-col items-start gap-2">
-                <button className="flex items-center gap-2 font-normal text-sm text-black hover:stroke-black hover:font-semibold">
+                <a
+                  target="_blank"
+                  href={resumeLink.url}
+                  className="flex items-center gap-2 font-normal text-sm text-black hover:stroke-black hover:font-semibold"
+                >
                   <DownloadIcon className="h-6 w-6" />
                   View Full Resume
-                </button>
+                </a>
                 <div className="flex gap-2">
-                  {[GithubIcon, LinkedinIcon, HashnodeIcon, YoutubeIcon].map(
-                    (Icon, idx) => (
-                      <a
-                        key={idx}
-                        href="#"
-                        className="p-1 border border-black rounded-full hover:bg-black hover:border-white 
+                  {socialLinks.map(({ id, url, icon: Icon }) => (
+                    <a
+                      key={id}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1 border border-black rounded-full hover:bg-black hover:border-white 
                         text-black hover:text-white transition-colors"
-                      >
-                        <Icon className="h-6 w-6" />
-                      </a>
-                    )
-                  )}
+                    >
+                      {Icon && <Icon className="h-6 w-6" />}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

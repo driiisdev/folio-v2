@@ -9,33 +9,32 @@ export interface Experience {
 
 export interface Project {
   id: string;
-  year: string;
+  img: string;
   title: string;
+  githubUrl?: string;
+  liveUrl?: string;
   description: string;
+  tools?: string[];
 }
 
 export interface Contribution {
   id: string;
   year?: string;
   title: string;
-  url?: string;
-  description: string;
-}
-
-
-export interface PersonalInfo {
-  name: string;
-  title: string;
-  bio: string;
-  location: string;
-  time: string;
-  interests: string[];
+  liveUrl?: string;
+  summary: string;
 }
 
 export interface SocialLink {
+  id: string;
+  platform: string;
+  url?: string;
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+}
+
+export interface ResumeLink {
   platform: string;
   url: string;
-  icon: string;
 }
 
 export interface WeatherData {
