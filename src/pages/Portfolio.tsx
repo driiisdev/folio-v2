@@ -9,7 +9,7 @@ import ContributionCard from "../components/ContributionCard";
 import { experiences } from "../data/experiences";
 import { projects } from "../data/projects";
 import { contributions } from "../data/contributions";
-import { socialLinks, resumeLink } from "../data/socials";
+import { socialLinks, resumeLink, bio } from "../data/misc";
 import DownloadIcon from "../assets/svg/download.svg?react";
 import {
   useContactModal,
@@ -18,7 +18,6 @@ import {
 } from "../store/useStore";
 
 const Portfolio: React.FC = () => {
-  const titles = ["SOFTWARE", "BACKEND", "FULLSTACK", "AI/ML"];
   const { isContactOpen, setIsContactOpen } = useContactModal();
   const { activeTab, setActiveTab } = useNavigationTab();
   const { cubeIndex, setCubeIndex } = useCubeIndex();
@@ -53,10 +52,10 @@ const Portfolio: React.FC = () => {
 
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 h-screen flex flex-col">
         <Header />
 
-        <div className="flex">
+        <div className="flex flex-1 overflow-hidden">
           <div className="w-1/2 py-4 px-12 flex flex-col justify-between bg-gray-100">
             <div>
               <div className="relative h-[72px] overflow-hidden perspective-1000">
@@ -67,7 +66,7 @@ const Portfolio: React.FC = () => {
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  {titles.map((text, index) => (
+                  {bio.labelA?.map((text, index) => (
                     <div
                       key={index}
                       className="absolute inset-0  text-7xl font-bold text-black"
@@ -81,34 +80,35 @@ const Portfolio: React.FC = () => {
                   ))}
                 </div>
               </div>
-              <h1 className="text-7xl text-right font-bold">ENGINEER</h1>
-              <p className="pt-8 pb-16 font-normal text-base text-center text-gray-700">
-                I am a developer of digital dreams. I build seamless
-                <br />
-                software solutions, pushing the boundaries of
-                <br />
-                technology, and crafting elegant code that defies
-                <br />
-                limits. From designing captivating user interfaces to
-                <br />
-                optimizing intricate distributed systems.
-              </p>
+              <h1 className="text-7xl text-right font-bold">{bio?.labelB}</h1>
+              {
+                bio.description && (
+                  <p className="mx-auto w-[25rem] pt-8 pb-16 font-normal text-base text-center text-gray-700">
+                    {bio.description}
+                  </p>
+                )
+              }
             </div>
             <div className="py-2 flex flex-row items-start justify-between">
               <div className="flex flex-col items-start gap-1">
                 <h4 className="font-bold">INTERESTS</h4>
-                <p className="font-normal text-xs text-gray-700">
-                  Creative Development
-                  <br />
-                  Technical Content
-                  <br />
-                  Gaming / Sport
-                </p>
+                {
+                  bio.interests?.length ? (
+                    <ul className="list-none">
+                      {bio.interests.map((interest, index) => (
+                        <li key={index} className="text-xs text-gray-700">
+                          {interest}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null
+                }
               </div>
               <div className="flex flex-col items-start gap-2">
                 <a
                   target="_blank"
                   href={resumeLink.url}
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 font-normal text-sm text-black hover:stroke-black hover:font-semibold"
                 >
                   <DownloadIcon className="h-6 w-6" />
@@ -132,9 +132,13 @@ const Portfolio: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-1/2 pt-4 pb-2 px-12 bg-gray-100">
-            <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
-            {renderContent()}
+          <div className="w-1/2 bg-gray-100 flex flex-col">
+            <div className="py-2 px-12 flex-shrink-0">
+              <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
+            </div>
+            <div className="flex-1 overflow-y-auto px-12 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+              {renderContent()}
+            </div>
           </div>
         </div>
 

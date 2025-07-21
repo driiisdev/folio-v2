@@ -1,3 +1,7 @@
+export interface Navigation {
+  tab: string[];
+}
+
 export interface Experience {
   id: string;
   year: string;
@@ -35,6 +39,15 @@ export interface SocialLink {
 export interface ResumeLink {
   platform: string;
   url: string;
+}
+
+export interface PersonalInfo {
+  firstName?: string;
+  lastName?: string;
+  labelA?: string[];
+  labelB?: string;
+  interests?: string[];
+  description?: string;
 }
 
 export interface WeatherData {

@@ -55,6 +55,8 @@ const ContactModal: React.FC<Props> = ({ isOpen, onClose }) => {
         <div className="pt-2 pb-14">
           <a
             href="mailto:olayinkayakub01@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex flex-row items-center space-x-1 border border-black px-1 py-0.5 rounded-lg hover:bg-black hover:text-white transition-colors"
           >
             <EnvelopeIcon className="h-10 w-10" />

@@ -36,7 +36,7 @@ export const useContactModal = create<contactModalState>()(
 
 export const useNavigationTab = create<navigationTabState>()(
   devtools((set) => ({
-      activeTab: "experience",
+      activeTab: "Experience",
       setActiveTab: (tab) => set({ activeTab: tab }),
   }))
 );

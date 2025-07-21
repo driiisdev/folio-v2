@@ -1,4 +1,5 @@
 import React from "react";
+import { bio } from "../data/misc";
 import PaperAirplaneIcon from "../assets/svg/paperAirplane.svg?react";
 import { useContactModal } from "../store/useStore";
 
@@ -8,7 +9,7 @@ const Header: React.FC = () => {
     <>
       <header className="mx-12 bg-gray-100 pt-4 pb-2 flex justify-between items-center border-b border-black ">
         <div>
-          <h1 className="text-lg font-bold leading-5">IDRIS<br/>YAKUB</h1>
+          <h1 className="text-lg font-bold leading-5 uppercase">{bio?.firstName}<br/>{bio?.lastName}</h1>
         </div>
         <button
           onClick={() => setIsContactOpen(!isContactOpen)}

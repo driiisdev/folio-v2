@@ -1,4 +1,5 @@
 import React from "react";
+import { navigation } from "../data/misc";
 
 interface Props {
   activeTab: string;
@@ -7,7 +8,7 @@ interface Props {
 
 const Navigation: React.FC<Props> = ({ activeTab, onTabChange }) => (
   <div className="flex flex-row gap-x-8 py-2">
-    {["Experience", "Projects", "Contributions"].map((tab) => (
+    {navigation.tab?.map((tab) => (
       <button
         key={tab}
         onClick={() => onTabChange(tab)}

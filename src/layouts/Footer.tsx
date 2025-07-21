@@ -1,4 +1,5 @@
 import React from 'react';
+import {bio} from '../data/misc';
 import { useTimeAndWeather } from '../hooks/useTimeAndWeather';
 
 const Footer: React.FC = () => {
@@ -16,7 +17,7 @@ const Footer: React.FC = () => {
           )}
           {error && <span className='h-7 w-auto text-red-500 inline'>⚠</span>}
         </h6>
-        <h6><span className='font-semibold'>Designed</span> by Idris Yakub</h6>
+        <h6><span className='font-semibold'>Designed</span> by {`${bio?.firstName} ${bio?.lastName} `}</h6>
       </footer>
     </>
   );
